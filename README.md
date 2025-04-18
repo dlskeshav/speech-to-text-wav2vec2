@@ -34,3 +34,70 @@ To evaluate the transcription quality of the `facebook/wav2vec2-base-960h` model
 ```bash
 pip install torch torchaudio transformers datasets evaluate jiwer
 
+📜 Script Flow
+The script performs the following steps:
+
+Load LibriSpeech ASR (clean, streaming).
+
+Load facebook/wav2vec2-base-960h model and processor.
+
+Run inference on 10 samples from the dataset.
+
+Evaluate transcription results using Word Error Rate (WER).
+
+Print results per sample and overall accuracy.
+
+📈 Sample Output (Example)
+yaml
+Copy
+Edit
+Sample 1
+Original Text   : A MOUSE FOUND A BEAUTIFUL RING IN THE GRASS
+Predicted Text  : a mouse found a beautiful ring in the grass
+WER for Sample  : 0.0000
+
+...
+
+Overall Evaluation:
+Word Error Rate (WER): 0.0417
+Approximate Accuracy : 95.83%
+🧪 Metrics
+WER (Word Error Rate) is calculated per sample and overall.
+
+Accuracy is estimated as:
+
+Accuracy
+=
+(
+1
+−
+WER
+)
+×
+100
+Accuracy=(1−WER)×100
+🧠 Model Architecture (Summary)
+Feature Extractor: CNN layers extract low-level audio features.
+
+Transformer Encoder: Captures long-range context via self-attention.
+
+CTC Decoder: Maps audio features to text without needing alignment.
+
+📂 Project Structure
+perl
+Copy
+Edit
+wav2vec2-eval/
+├── NNDL_ASSIGNMENT_3.pdf       # Full code and writeup
+├── evaluation_script.py        # Inference & WER calculation
+└── README.md                   # Project overview
+🏁 Conclusion
+This evaluation demonstrates the practical effectiveness of Wav2Vec2 in transcribing speech from real-world datasets like LibriSpeech. The model achieves high accuracy with minimal tuning.
+
+🔗 References
+facebook/wav2vec2-base-960h (Hugging Face)
+
+LibriSpeech Dataset (OpenSLR)
+
+Wav2Vec2 Paper (Facebook AI)
+
