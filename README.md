@@ -1,44 +1,36 @@
-# 🎤 Speech-to-Text with Wav2Vec2.0
+# 🧠 Speech Recognition with Wav2Vec2 — Evaluation on LibriSpeech
 
-[![Hugging Face Model](https://img.shields.io/badge/HF-Model-blue)](https://huggingface.co/facebook/wav2vec2-base-960h)
-[![Python](https://img.shields.io/badge/Python-3.7%2B-blue.svg)](https://www.python.org/)
-
-
-This project demonstrates **automatic speech recognition (ASR)** using Facebook's [Wav2Vec2.0](https://huggingface.co/facebook/wav2vec2-base-960h) pre-trained model.  
-It transcribes audio files into written text with high accuracy.
+This repository demonstrates a mini speech recognition pipeline using Hugging Face’s **Wav2Vec2** model and the **LibriSpeech** dataset. It evaluates transcription quality using the **Word Error Rate (WER)** metric.
 
 ---
 
-## 📋 Problem Statement and Objective
+## 📌 Objective
 
-- **Problem Statement:**  
-  Build a speech-to-text system capable of converting spoken audio into text.
-
-- **Objective:**  
-  Use a robust, pre-trained deep learning model to recognize speech with minimal effort and high accuracy.
+To evaluate the transcription quality of the `facebook/wav2vec2-base-960h` model on a subset of the LibriSpeech dataset using robust metrics like WER. This serves as a reproducible mini-pipeline for audio-to-text evaluation.
 
 ---
 
-## 🛠️ Experimental Setup
+## 📚 Dataset
 
-- **Language:** Python 3.x
-- **Environment:** Jupyter Notebook / Script
-- **Main Libraries:** 
-  - `torch`
-  - `torchaudio`
-  - `transformers`
-  - `librosa` (optional for preprocessing)
+- **Name:** LibriSpeech ASR Corpus
+- **Subset Used:** `train.100` → `"clean"` split
+- **Accessed via:** Hugging Face Datasets
+- **Mode:** Streaming (for low-memory usage)
+- **Sample Size:** 10 samples only (for quick demonstration)
 
 ---
 
-## 🔍 Model Architecture
+## 🧠 Model Used
 
-> Using [`facebook/wav2vec2-base-960h`](https://huggingface.co/facebook/wav2vec2-base-960h), a base Wav2Vec2 model trained on 960 hours of LibriSpeech audio using CTC loss.
+- **Model:** [`facebook/wav2vec2-base-960h`](https://huggingface.co/facebook/wav2vec2-base-960h)
+- **Architecture:** Wav2Vec2 + CTC Head
+- **Pre-trained on:** 960 hours of LibriSpeech
+- **Sampling Rate:** 16kHz (mono-channel expected)
 
-```mermaid
-graph TD;
-    A[Raw Audio Input (.wav)] --> B[Feature Encoder (CNN layers)];
-    B --> C[Transformer Encoder (Self-attention layers)];
-    C --> D[CTC Decoder (Greedy / Beam search)];
-    D --> E[Text Output];
+---
+
+## 🛠️ Dependencies
+
+```bash
+pip install torch torchaudio transformers datasets evaluate jiwer
 
