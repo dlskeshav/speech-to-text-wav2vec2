@@ -66,15 +66,6 @@ WER (Word Error Rate) is calculated per sample and overall.
 
 Accuracy is estimated as:
 
-Accuracy
-=
-(
-1
-−
-WER
-)
-×
-100
 Accuracy=(1−WER)×100
 🧠 Model Architecture (Summary)
 Feature Extractor: CNN layers extract low-level audio features.
