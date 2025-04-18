@@ -2,7 +2,7 @@
 
 [![Hugging Face Model](https://img.shields.io/badge/HF-Model-blue)](https://huggingface.co/facebook/wav2vec2-base-960h)
 [![Python](https://img.shields.io/badge/Python-3.7%2B-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 This project demonstrates **automatic speech recognition (ASR)** using Facebook's [Wav2Vec2.0](https://huggingface.co/facebook/wav2vec2-base-960h) pre-trained model.  
 It transcribes audio files into written text with high accuracy.
